@@ -35,7 +35,7 @@ $input_all_chuyendi = $keypass . ',' . $codename . ',' . implode(',', $all_chuye
 $input_chuyendi = $keypass . ',' . $codename . ',' . implode(',', $chuyen_di);
 $input_datve = $keypass . ',' . $codename . ',' . implode(',', $params_datve);
 
-$checksum = md5($input_chuyendi);
+$checksum = md5($input_all_ht);
 $checksum_dv = md5($input_datve);
 
 echo $checksum_dv;
@@ -49,7 +49,7 @@ $url_getchuyendi = 'http://xe.chonve.vn/lapi/GetChuyenDi?codename=' . $codename 
 $ulr_getsodoghexe = 'http://xe.chonve.vn/lapi/GetSoDoGheXe?codename=' . $codename . '&ChuyenDiId=54711&checksum=' . $checksum;
 $url_datve = 'http://xe.chonve.vn/lapi/DatVe?codename=' . $codename . '&' . $url_params . '&checksum=' . $checksum_dv;
 
-$result = file_get_contents($url_datve);
-// Will dump a beauty json :3
+$result = file_get_contents($url);
+// Will dump a beauty json :$url
 var_dump(json_decode($result, true));
 //
